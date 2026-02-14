@@ -25,7 +25,10 @@
       background-size: 400% 400%;
       animation: bgMove 12s ease infinite;
       font-family: "Poppins", sans-serif;
-      overflow: hidden;
+      /* ¡AQUÍ ESTABA EL TRUCO! Permitimos el scroll vertical, pero ocultamos el horizontal */
+      overflow-x: hidden; 
+      overflow-y: auto;
+      padding: 40px 15px; /* Damos un poco de espacio arriba y abajo para que la tarjeta no choque con los bordes al scrollear */
     }
 
     @keyframes bgMove {
@@ -37,6 +40,7 @@
     /* Card */
     .card {
       width: min(92%, 420px);
+      margin: auto; /* Ayuda a centrar la tarjeta correctamente cuando hay scroll */
       padding: 40px 30px 45px;
       background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(18px);
@@ -104,6 +108,7 @@
       font-style: italic;
       box-shadow: 0 10px 25px rgba(255, 77, 109, 0.1);
       transition: transform 0.3s ease;
+      white-space: pre-line; /* Hace que se respeten los "Enter" y saltos de línea de tu texto */
     }
 
     .message-box:hover {
@@ -138,24 +143,23 @@
   <div class="card">
     <img src="https://i.postimg.cc/HnCZjgLQ/c627d322-763b-480f-8ca4-9e755ca74f76.jpg" alt="Nosotros" class="profile-image">
 
-    <h2>Emely<br>Feliz Dia Del Amor!</h2>
+    <h2>Emely<br>¡Feliz Día Del Amor!</h2>
 
     <div class="message-box">
-      "Feliz Dia de san valentin mi amorsote!
-      
-      Que en este dia especial -Comercial- ajaja te lleguen muchas cosas bonitas, incluyendome a mi❤️
-      Se que a menudo puedo parecer alguien que jode mucho, pero no lo hago con mala intencion, lo hago con la intencion de que
-      Consigas esa mejor version de ti, o cualquier meta que tengas en mente. 
-      Soy ese jodon que hubiese querido tener en cada cosa que me proposuera en el pasado!
-      
-      Espero en algun momento poderte dar no solo textos,
-       y una pagina en internet, 
-       sino viajes, 
-       y momentos mas especiales,
-       y que podamos seguir creciendo juntos,
-       gracias por ser tan linda conmigo y por todo el amor que me das.
-      
-      Te adoro mi reina preciosa❤️❤️❤️❤️" ✨
+"Feliz Día de San Valentín mi amorsote!
+
+Que en este día especial -comercial- jajaja te lleguen muchas cosas bonitas, incluyéndome a mí ❤️
+Sé que a menudo puedo parecer alguien que jode mucho, pero no lo hago con mala intención, lo hago con la intención de que consigas esa mejor versión de ti, o cualquier meta que tengas en mente. 
+¡Soy ese jodón que hubiese querido tener en cada cosa que me propusiera en el pasado!
+
+Espero en algún momento poderte dar no solo textos,
+y una página en internet, 
+sino viajes, 
+y momentos más especiales,
+y que podamos seguir creciendo juntos.
+Gracias por ser tan linda conmigo y por todo el amor que me das.
+
+Te adoro mi reina preciosa ❤️❤️❤️❤️" ✨
     </div>
   </div>
 
