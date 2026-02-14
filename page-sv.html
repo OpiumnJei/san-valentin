@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Be My Valentine 💘</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: bgMove 12s ease infinite;
+      font-family: "Poppins", sans-serif;
+      overflow: hidden;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Card */
+    .card {
+      width: min(92%, 420px);
+      padding: 40px 30px 45px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      text-align: center;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.25),
+        inset 0 0 0 1px rgba(255,255,255,0.4);
+      position: relative;
+      animation: cardIn 1.1s ease;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Glow ring */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 30px;
+      background: linear-gradient(120deg, #ff4d6d, #ff9a9e, #fbc2eb);
+      z-index: -1;
+      filter: blur(20px);
+      opacity: 0.7;
+    }
+
+    /* Estilos para la Foto */
+    .profile-image {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+      margin: 0 auto 25px auto;
+      display: block;
+      animation: heartbeat-soft 2.5s infinite ease-in-out;
+    }
+
+    @keyframes heartbeat-soft {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      color: #4a1c2f;
+      margin-bottom: 20px;
+      line-height: 1.35;
+    }
+
+    /* Campo de Texto */
+    .message-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px dashed rgba(255, 117, 143, 0.6);
+      padding: 20px 25px;
+      border-radius: 20px;
+      color: #5a2a3d;
+      font-size: 15px;
+      line-height: 1.6;
+      font-style: italic;
+      box-shadow: 0 10px 25px rgba(255, 77, 109, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .message-box:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Corazones flotantes */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      animation: floatUp linear forwards;
+      pointer-events: none;
+      filter: blur(0.3px);
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(1.8); opacity: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h2 { font-size: 23px; }
+      .profile-image { width: 130px; height: 130px; }
+      .message-box { font-size: 14px; padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <img src="https://i.postimg.cc/HnCZjgLQ/c627d322-763b-480f-8ca4-9e755ca74f76.jpg" alt="Nosotros" class="profile-image">
+
+    <h2>Emely<br>Feliz Dia Del Amor!</h2>
+
+    <div class="message-box">
+      "Feliz Dia de san valentin mi amorsote!
+      
+      Que en este dia especial -Comercial- ajaja te lleguen muchas cosas bonitas, incluyendome a mi❤️
+      Se que a menudo puedo parecer alguien que jode mucho, pero no lo hago con mala intencion, lo hago con la intencion de que
+      Consigas esa mejor version de ti, o cualquier meta que tengas en mente. 
+      Soy ese jodon que hubiese querido tener en cada cosa que me proposuera en el pasado!
+      
+      Espero en algun momento poderte dar no solo textos,
+       y una pagina en internet, 
+       sino viajes, 
+       y momentos mas especiales,
+       y que podamos seguir creciendo juntos,
+       gracias por ser tan linda conmigo y por todo el amor que me das.
+      
+      Te adoro mi reina preciosa❤️❤️❤️❤️" ✨
+    </div>
+  </div>
+
+  <script>
+    // Lanzar confeti
+    window.onload = () => {
+      setTimeout(() => {
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+          colors: ['#ff4d6d', '#ff758f', '#ff9a9e', '#ffffff']
+        });
+      }, 300);
+    };
+
+    // Corazones de fondo
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 22 + 14 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+      heart.style.opacity = Math.random() * 0.5 + 0.4;
+
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 380);
+  </script>
+
+</body>
+</html>
